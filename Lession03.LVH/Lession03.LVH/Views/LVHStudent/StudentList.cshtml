@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<h2>@ViewBag.titleName</h2>
+<hr />
+@foreach (var item in ViewBag.ListName)
+{
+    <h5>@item</h5>
+}
+
+
+<hr />
+<h2>Thông tin sinh viên</h2>
+
+@*<p>ID: @ViewBag.Student.ID</p>
+    <p>Name: @ViewBag.Student.Name</p>
+    <p>Age: @ViewBag.Student.Age</p>*@
+@ViewBag.Student;
+
