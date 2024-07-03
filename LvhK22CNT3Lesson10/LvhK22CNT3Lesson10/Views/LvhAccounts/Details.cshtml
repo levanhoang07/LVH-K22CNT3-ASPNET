@@ -1,0 +1,67 @@
+﻿@model LvhK22CNT3Lesson10.Models.LvhAccount
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LvhLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LvhAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhUserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhUserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LvhId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
