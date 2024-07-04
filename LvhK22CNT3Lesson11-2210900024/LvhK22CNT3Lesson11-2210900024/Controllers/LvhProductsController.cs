@@ -56,7 +56,7 @@ namespace LvhK22CNT3Lesson11_2210900024.Controllers
             {
                 db.LvhProducts.Add(lvhProduct);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("LvhIndex");
             }
 
             ViewBag.LvhCateId = new SelectList(db.LvhCategories, "LvhID", "LvhCateName", lvhProduct.LvhCateId);
@@ -91,7 +91,7 @@ namespace LvhK22CNT3Lesson11_2210900024.Controllers
             {
                 db.Entry(lvhProduct).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("LvhIndex");
             }
 
             ViewBag.LvhCateId = new SelectList(db.LvhCategories, "LvhID", "LvhCateName", lvhProduct.LvhCateId);
@@ -124,7 +124,7 @@ namespace LvhK22CNT3Lesson11_2210900024.Controllers
             LvhProduct lvhProduct = await db.LvhProducts.FindAsync(id);
             db.LvhProducts.Remove(lvhProduct);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("LvhIndex");
         }
 
         protected override void Dispose(bool disposing)

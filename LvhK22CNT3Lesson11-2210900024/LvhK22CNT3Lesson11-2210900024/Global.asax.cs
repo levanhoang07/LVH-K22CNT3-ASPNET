@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+// Global.asax.cs
 namespace LvhK22CNT3Lesson11_2210900024
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -19,3 +20,4 @@ namespace LvhK22CNT3Lesson11_2210900024
         }
     }
 }
+

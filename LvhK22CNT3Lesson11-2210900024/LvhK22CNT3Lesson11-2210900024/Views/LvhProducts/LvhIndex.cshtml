@@ -26,6 +26,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LvhActive)
+           
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LvhCategory.LvhCateName)
@@ -49,6 +50,15 @@
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.LvhActive)
+        @if (item.LvhActive == true)
+        {
+            <span style="color:green">Hoạt động</span>
+        }
+        else
+        {
+            <span style="color:Red">Không hoạt động</span>
+        }
+
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.LvhCategory.LvhCateName)
