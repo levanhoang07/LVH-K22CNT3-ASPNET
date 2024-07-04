@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LvhK22CNT3Lesson11DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LvhCategory">
+    <Key>
+      <PropertyRef Name="LvhID" />
+    </Key>
+    <Property Name="LvhID" Type="int" Nullable="false" />
+    <Property Name="LvhCateName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LvhStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="LvhProduct">
+    <Key>
+      <PropertyRef Name="LvhId2210900024" />
+    </Key>
+    <Property Name="LvhId2210900024" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LvhProName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LvhQty" Type="int" />
+    <Property Name="LvhPrice" Type="float" />
+    <Property Name="LvhCateId" Type="int" />
+    <Property Name="LvhActive" Type="bit" />
+  </EntityType>
+  <Association Name="FK_LvhProduct_LvhCategory">
+    <End Role="LvhCategory" Type="Self.LvhCategory" Multiplicity="0..1" />
+    <End Role="LvhProduct" Type="Self.LvhProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LvhCategory">
+        <PropertyRef Name="LvhID" />
+      </Principal>
+      <Dependent Role="LvhProduct">
+        <PropertyRef Name="LvhCateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LvhK22CNT3Lesson11DbModelStoreContainer">
+    <EntitySet Name="LvhCategory" EntityType="Self.LvhCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LvhProduct" EntityType="Self.LvhProduct" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LvhProduct_LvhCategory" Association="Self.FK_LvhProduct_LvhCategory">
+      <End Role="LvhCategory" EntitySet="LvhCategory" />
+      <End Role="LvhProduct" EntitySet="LvhProduct" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,35 @@
+﻿@model LvhK22CNT3Lesson11_2210900024.Models.LvhCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Lvh2210900024Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LvhCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhCateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhCateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LvhID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

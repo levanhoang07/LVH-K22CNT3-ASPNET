@@ -1,0 +1,65 @@
+﻿@model LvhK22CNT3Lesson11_2210900024.Models.LvhProduct
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Lvh2210900024Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LvhProduct</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhProName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhProName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LvhCategory.LvhCateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LvhCategory.LvhCateName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

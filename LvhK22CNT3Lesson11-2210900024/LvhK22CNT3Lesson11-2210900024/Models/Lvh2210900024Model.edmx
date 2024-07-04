@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LvhK22CNT3Lesson11DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LvhCategory">
+          <Key>
+            <PropertyRef Name="LvhID" />
+          </Key>
+          <Property Name="LvhID" Type="int" Nullable="false" />
+          <Property Name="LvhCateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LvhStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="LvhProduct">
+          <Key>
+            <PropertyRef Name="LvhId2210900024" />
+          </Key>
+          <Property Name="LvhId2210900024" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LvhProName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LvhQty" Type="int" />
+          <Property Name="LvhPrice" Type="float" />
+          <Property Name="LvhCateId" Type="int" />
+          <Property Name="LvhActive" Type="bit" />
+        </EntityType>
+        <Association Name="FK_LvhProduct_LvhCategory">
+          <End Role="LvhCategory" Type="Self.LvhCategory" Multiplicity="0..1" />
+          <End Role="LvhProduct" Type="Self.LvhProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LvhCategory">
+              <PropertyRef Name="LvhID" />
+            </Principal>
+            <Dependent Role="LvhProduct">
+              <PropertyRef Name="LvhCateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LvhK22CNT3Lesson11DbModelStoreContainer">
+          <EntitySet Name="LvhCategory" EntityType="Self.LvhCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LvhProduct" EntityType="Self.LvhProduct" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LvhProduct_LvhCategory" Association="Self.FK_LvhProduct_LvhCategory">
+            <End Role="LvhCategory" EntitySet="LvhCategory" />
+            <End Role="LvhProduct" EntitySet="LvhProduct" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LvhK22CNT3Lesson11DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LvhCategory">
+          <Key>
+            <PropertyRef Name="LvhID" />
+          </Key>
+          <Property Name="LvhID" Type="Int32" Nullable="false" />
+          <Property Name="LvhCateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LvhStatus" Type="Boolean" />
+          <NavigationProperty Name="LvhProducts" Relationship="LvhK22CNT3Lesson11DbModel.FK_LvhProduct_LvhCategory" FromRole="LvhCategory" ToRole="LvhProduct" />
+        </EntityType>
+        <EntityType Name="LvhProduct">
+          <Key>
+            <PropertyRef Name="LvhId2210900024" />
+          </Key>
+          <Property Name="LvhId2210900024" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LvhProName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LvhQty" Type="Int32" />
+          <Property Name="LvhPrice" Type="Double" />
+          <Property Name="LvhCateId" Type="Int32" />
+          <Property Name="LvhActive" Type="Boolean" />
+          <NavigationProperty Name="LvhCategory" Relationship="LvhK22CNT3Lesson11DbModel.FK_LvhProduct_LvhCategory" FromRole="LvhProduct" ToRole="LvhCategory" />
+        </EntityType>
+        <EntityContainer Name="LvhK22CNT3Lesson11DbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LvhCategories" EntityType="Self.LvhCategory" />
+          <EntitySet Name="LvhProducts" EntityType="Self.LvhProduct" />
+          <AssociationSet Name="FK_LvhProduct_LvhCategory" Association="LvhK22CNT3Lesson11DbModel.FK_LvhProduct_LvhCategory">
+            <End Role="LvhCategory" EntitySet="LvhCategories" />
+            <End Role="LvhProduct" EntitySet="LvhProducts" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_LvhProduct_LvhCategory">
+          <End Type="LvhK22CNT3Lesson11DbModel.LvhCategory" Role="LvhCategory" Multiplicity="0..1" />
+          <End Type="LvhK22CNT3Lesson11DbModel.LvhProduct" Role="LvhProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LvhCategory">
+              <PropertyRef Name="LvhID" />
+            </Principal>
+            <Dependent Role="LvhProduct">
+              <PropertyRef Name="LvhCateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LvhK22CNT3Lesson11DbModelStoreContainer" CdmEntityContainer="LvhK22CNT3Lesson11DbEntities">
+          <EntitySetMapping Name="LvhCategories">
+            <EntityTypeMapping TypeName="LvhK22CNT3Lesson11DbModel.LvhCategory">
+              <MappingFragment StoreEntitySet="LvhCategory">
+                <ScalarProperty Name="LvhID" ColumnName="LvhID" />
+                <ScalarProperty Name="LvhCateName" ColumnName="LvhCateName" />
+                <ScalarProperty Name="LvhStatus" ColumnName="LvhStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LvhProducts">
+            <EntityTypeMapping TypeName="LvhK22CNT3Lesson11DbModel.LvhProduct">
+              <MappingFragment StoreEntitySet="LvhProduct">
+                <ScalarProperty Name="LvhId2210900024" ColumnName="LvhId2210900024" />
+                <ScalarProperty Name="LvhProName" ColumnName="LvhProName" />
+                <ScalarProperty Name="LvhQty" ColumnName="LvhQty" />
+                <ScalarProperty Name="LvhPrice" ColumnName="LvhPrice" />
+                <ScalarProperty Name="LvhCateId" ColumnName="LvhCateId" />
+                <ScalarProperty Name="LvhActive" ColumnName="LvhActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

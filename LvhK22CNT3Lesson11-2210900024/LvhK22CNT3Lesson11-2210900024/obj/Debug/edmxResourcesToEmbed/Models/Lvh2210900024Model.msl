@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LvhK22CNT3Lesson11DbModelStoreContainer" CdmEntityContainer="LvhK22CNT3Lesson11DbEntities">
+    <EntitySetMapping Name="LvhCategories">
+      <EntityTypeMapping TypeName="LvhK22CNT3Lesson11DbModel.LvhCategory">
+        <MappingFragment StoreEntitySet="LvhCategory">
+          <ScalarProperty Name="LvhID" ColumnName="LvhID" />
+          <ScalarProperty Name="LvhCateName" ColumnName="LvhCateName" />
+          <ScalarProperty Name="LvhStatus" ColumnName="LvhStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LvhProducts">
+      <EntityTypeMapping TypeName="LvhK22CNT3Lesson11DbModel.LvhProduct">
+        <MappingFragment StoreEntitySet="LvhProduct">
+          <ScalarProperty Name="LvhId2210900024" ColumnName="LvhId2210900024" />
+          <ScalarProperty Name="LvhProName" ColumnName="LvhProName" />
+          <ScalarProperty Name="LvhQty" ColumnName="LvhQty" />
+          <ScalarProperty Name="LvhPrice" ColumnName="LvhPrice" />
+          <ScalarProperty Name="LvhCateId" ColumnName="LvhCateId" />
+          <ScalarProperty Name="LvhActive" ColumnName="LvhActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

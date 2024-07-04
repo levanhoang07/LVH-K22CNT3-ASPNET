@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LvhK22CNT3Lesson11DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LvhCategory">
+    <Key>
+      <PropertyRef Name="LvhID" />
+    </Key>
+    <Property Name="LvhID" Type="Int32" Nullable="false" />
+    <Property Name="LvhCateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LvhStatus" Type="Boolean" />
+    <NavigationProperty Name="LvhProducts" Relationship="LvhK22CNT3Lesson11DbModel.FK_LvhProduct_LvhCategory" FromRole="LvhCategory" ToRole="LvhProduct" />
+  </EntityType>
+  <EntityType Name="LvhProduct">
+    <Key>
+      <PropertyRef Name="LvhId2210900024" />
+    </Key>
+    <Property Name="LvhId2210900024" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LvhProName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LvhQty" Type="Int32" />
+    <Property Name="LvhPrice" Type="Double" />
+    <Property Name="LvhCateId" Type="Int32" />
+    <Property Name="LvhActive" Type="Boolean" />
+    <NavigationProperty Name="LvhCategory" Relationship="LvhK22CNT3Lesson11DbModel.FK_LvhProduct_LvhCategory" FromRole="LvhProduct" ToRole="LvhCategory" />
+  </EntityType>
+  <EntityContainer Name="LvhK22CNT3Lesson11DbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LvhCategories" EntityType="Self.LvhCategory" />
+    <EntitySet Name="LvhProducts" EntityType="Self.LvhProduct" />
+    <AssociationSet Name="FK_LvhProduct_LvhCategory" Association="LvhK22CNT3Lesson11DbModel.FK_LvhProduct_LvhCategory">
+      <End Role="LvhCategory" EntitySet="LvhCategories" />
+      <End Role="LvhProduct" EntitySet="LvhProducts" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_LvhProduct_LvhCategory">
+    <End Type="LvhK22CNT3Lesson11DbModel.LvhCategory" Role="LvhCategory" Multiplicity="0..1" />
+    <End Type="LvhK22CNT3Lesson11DbModel.LvhProduct" Role="LvhProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LvhCategory">
+        <PropertyRef Name="LvhID" />
+      </Principal>
+      <Dependent Role="LvhProduct">
+        <PropertyRef Name="LvhCateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
