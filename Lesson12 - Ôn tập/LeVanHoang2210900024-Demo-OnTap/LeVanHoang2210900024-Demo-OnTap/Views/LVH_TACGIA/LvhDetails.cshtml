@@ -1,0 +1,29 @@
+﻿@model LeVanHoang2210900024_Demo_OnTap.Models.LVH_TACGIA
+
+@{
+    ViewBag.Title = "LvhDetails";
+    Layout = "~/Views/Shared/_LvhLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LVH_TACGIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Lvh_TenTacGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lvh_TenTacGia)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Lvh:Edit", "LvhEdit", new { id = Model.Lvh_MaTG }) |
+   
+        @Html.ActionLink("Back to List", "LvhIndex", null, new { @class = "btn btn-primary" })
+    
+</p>

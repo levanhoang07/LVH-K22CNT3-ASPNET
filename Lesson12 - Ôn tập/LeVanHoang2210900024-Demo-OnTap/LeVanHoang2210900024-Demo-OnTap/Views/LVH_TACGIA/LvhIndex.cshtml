@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LeVanHoang2210900024_Demo_OnTap.Models.LVH_TACGIA>
+
+@{
+    ViewBag.Title = "LvhIndex";
+    Layout = "~/Views/Shared/_LvhLayout.cshtml";
+}
+
+<h2>Danh Sách Tác Giả</h2>
+
+
+<a href="LvhCreate" class="btn btn-primary">Thêm Mới</a>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lvh_MaTG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lvh_TenTacGia)
+        </th>
+        <th>Chức Năng</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lvh_MaTG)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lvh_TenTacGia)
+    </td>
+    <td>
+        @Html.ActionLink("Lvh:Edit", "LvhEdit", new { id = item.Lvh_MaTG }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Lvh:Details", "LvhDetails", new { id = item.Lvh_MaTG }, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("LvhDelete", "LvhDelete", new { id = item.Lvh_MaTG }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+}
+
+</table>

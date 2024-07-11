@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LeVanHoang2210900024_Demo_OnTapModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LVH_SACH">
+    <Key>
+      <PropertyRef Name="Lvh_MaSach" />
+    </Key>
+    <Property Name="Lvh_MaSach" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Lvh_TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lvh_SoTrang" Type="Int32" />
+    <Property Name="Lvh_NamXB" Type="Int32" />
+    <Property Name="Lvh_MaTG" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Lvh_TrangThai" Type="Boolean" />
+    <NavigationProperty Name="LVH_TACGIA" Relationship="Self.FK_LVH_SACH_LVH_TACGIA" FromRole="LVH_SACH" ToRole="LVH_TACGIA" />
+  </EntityType>
+  <EntityType Name="LVH_TACGIA">
+    <Key>
+      <PropertyRef Name="Lvh_MaTG" />
+    </Key>
+    <Property Name="Lvh_MaTG" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Lvh_TenTacGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LVH_SACH" Relationship="Self.FK_LVH_SACH_LVH_TACGIA" FromRole="LVH_TACGIA" ToRole="LVH_SACH" />
+  </EntityType>
+  <Association Name="FK_LVH_SACH_LVH_TACGIA">
+    <End Role="LVH_TACGIA" Type="Self.LVH_TACGIA" Multiplicity="0..1" />
+    <End Role="LVH_SACH" Type="Self.LVH_SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LVH_TACGIA">
+        <PropertyRef Name="Lvh_MaTG" />
+      </Principal>
+      <Dependent Role="LVH_SACH">
+        <PropertyRef Name="Lvh_MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LeVanHoang2210900024_Demo_OnTapEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LVH_SACH" EntityType="Self.LVH_SACH" />
+    <EntitySet Name="LVH_TACGIA" EntityType="Self.LVH_TACGIA" />
+    <AssociationSet Name="FK_LVH_SACH_LVH_TACGIA" Association="Self.FK_LVH_SACH_LVH_TACGIA">
+      <End Role="LVH_TACGIA" EntitySet="LVH_TACGIA" />
+      <End Role="LVH_SACH" EntitySet="LVH_SACH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

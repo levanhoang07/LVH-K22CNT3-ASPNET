@@ -1,0 +1,64 @@
+﻿@model IEnumerable<LeVanHoang2210900024_Demo_OnTap.Models.LVH_SACH>
+
+@{
+    ViewBag.Title = "LvhIndex";
+    Layout = "~/Views/Shared/_LvhLayout.cshtml";
+}
+
+<h2>Danh Mục Sách</h2>
+
+
+<a href="LvhCreate" class="btn btn-primary">Thêm Mới</a>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lvh_MaSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lvh_TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lvh_SoTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lvh_NamXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lvh_TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LVH_TACGIA.Lvh_TenTacGia)
+        </th>
+        <th>Chức Năng</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lvh_MaSach)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lvh_TenSach)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lvh_SoTrang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lvh_NamXB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lvh_TrangThai)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LVH_TACGIA.Lvh_TenTacGia)
+    </td>
+    <td>
+        @Html.ActionLink("Lvh:Edit", "LvhEdit", new { id = item.Lvh_MaSach }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Lvh:Details", "LvhDetails", new { id = item.Lvh_MaSach }, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("Lvh:Delete", "LvhDelete", new { id = item.Lvh_MaSach }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+    }
+
+</table>

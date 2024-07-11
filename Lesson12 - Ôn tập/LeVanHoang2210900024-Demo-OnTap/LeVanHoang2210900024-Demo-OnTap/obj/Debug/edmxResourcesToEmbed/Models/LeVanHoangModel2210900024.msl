@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LeVanHoang2210900024_Demo_OnTapModelStoreContainer" CdmEntityContainer="LeVanHoang2210900024_Demo_OnTapEntities">
+    <EntitySetMapping Name="LVH_SACH">
+      <EntityTypeMapping TypeName="LeVanHoang2210900024_Demo_OnTapModel.LVH_SACH">
+        <MappingFragment StoreEntitySet="LVH_SACH">
+          <ScalarProperty Name="Lvh_MaSach" ColumnName="Lvh_MaSach" />
+          <ScalarProperty Name="Lvh_TenSach" ColumnName="Lvh_TenSach" />
+          <ScalarProperty Name="Lvh_SoTrang" ColumnName="Lvh_SoTrang" />
+          <ScalarProperty Name="Lvh_NamXB" ColumnName="Lvh_NamXB" />
+          <ScalarProperty Name="Lvh_MaTG" ColumnName="Lvh_MaTG" />
+          <ScalarProperty Name="Lvh_TrangThai" ColumnName="Lvh_TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LVH_TACGIA">
+      <EntityTypeMapping TypeName="LeVanHoang2210900024_Demo_OnTapModel.LVH_TACGIA">
+        <MappingFragment StoreEntitySet="LVH_TACGIA">
+          <ScalarProperty Name="Lvh_MaTG" ColumnName="Lvh_MaTG" />
+          <ScalarProperty Name="Lvh_TenTacGia" ColumnName="Lvh_TenTacGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

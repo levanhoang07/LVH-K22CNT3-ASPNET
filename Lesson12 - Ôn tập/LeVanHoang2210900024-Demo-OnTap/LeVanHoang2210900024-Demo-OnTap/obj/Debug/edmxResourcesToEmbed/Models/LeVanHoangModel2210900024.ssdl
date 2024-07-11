@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LeVanHoang2210900024_Demo_OnTapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LVH_SACH">
+    <Key>
+      <PropertyRef Name="Lvh_MaSach" />
+    </Key>
+    <Property Name="Lvh_MaSach" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Lvh_TenSach" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lvh_SoTrang" Type="int" />
+    <Property Name="Lvh_NamXB" Type="int" />
+    <Property Name="Lvh_MaTG" Type="char" MaxLength="5" />
+    <Property Name="Lvh_TrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="LVH_TACGIA">
+    <Key>
+      <PropertyRef Name="Lvh_MaTG" />
+    </Key>
+    <Property Name="Lvh_MaTG" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Lvh_TenTacGia" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_LVH_SACH_LVH_TACGIA">
+    <End Role="LVH_TACGIA" Type="Self.LVH_TACGIA" Multiplicity="0..1" />
+    <End Role="LVH_SACH" Type="Self.LVH_SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LVH_TACGIA">
+        <PropertyRef Name="Lvh_MaTG" />
+      </Principal>
+      <Dependent Role="LVH_SACH">
+        <PropertyRef Name="Lvh_MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LeVanHoang2210900024_Demo_OnTapModelStoreContainer">
+    <EntitySet Name="LVH_SACH" EntityType="Self.LVH_SACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LVH_TACGIA" EntityType="Self.LVH_TACGIA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LVH_SACH_LVH_TACGIA" Association="Self.FK_LVH_SACH_LVH_TACGIA">
+      <End Role="LVH_TACGIA" EntitySet="LVH_TACGIA" />
+      <End Role="LVH_SACH" EntitySet="LVH_SACH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
